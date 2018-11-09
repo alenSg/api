@@ -1,8 +1,9 @@
-package com.victorine.victorine.functions;
+package com.victorine.victorine.DAO;
 
 import com.victorine.victorine.config.JDBCConnect;
 import com.victorine.victorine.models.answers;
 import com.victorine.victorine.models.question;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,12 +12,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class functions {
+@Component
+public class gameDAOImpl implements gameDAO{
     JDBCConnect jdbcConnect = new JDBCConnect();
     Connection connection = jdbcConnect.getConnection();
     List finalRes = new ArrayList();
 
-    public functions() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public gameDAOImpl() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
     }
 
     public List getQuestion() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
@@ -48,8 +50,8 @@ public class functions {
         return finalRes;
     }
 
-    public String ask(String username, String answer) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement("SELECT ask ('" + username + "', '" + answer + "')");
+    public String ask(String answer) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("SELECT ask ('" + answer + "')");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             return String.valueOf(rs.getString("ask"));
@@ -65,7 +67,7 @@ public class functions {
         return null;
     }
 
-    public String getendTime() throws SQLException {
+    public String getEndTime() throws SQLException {
         ResultSet rs = connection.prepareStatement("SELECT end_date FROM stream_setting WHERE used IS FALSE").executeQuery();
         while (rs.next()) {
             return rs.getString("end_date");

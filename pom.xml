@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <packaging>war</packaging>
+
     <groupId>com.victorine</groupId>
     <artifactId>victorine</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -51,6 +51,10 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-hal-browser</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -74,6 +78,8 @@
             <version>5.0.6.RELEASE</version>
             <type>jar</type>
         </dependency>
+
+
 
         <!-- Add Spring Security -->
         <dependency>
@@ -126,11 +132,6 @@
             <version>5.0.6.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>5.0.6.RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.taglibs</groupId>
@@ -163,9 +164,8 @@
             <version>2.0.4.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>

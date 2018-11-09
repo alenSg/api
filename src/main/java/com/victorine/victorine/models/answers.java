@@ -1,6 +1,7 @@
 package com.victorine.victorine.models;
 
 public class answers {
+    private int id;
     private String answer;
 
     public String getAnswer() {
